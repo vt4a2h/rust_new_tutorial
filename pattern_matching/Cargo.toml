@@ -1,0 +1,9 @@
+[package]
+
+name = "pattern_matching"
+version = "0.0.1"
+authors = [ "Vitaly <vt4a2h@gmail.com>" ]
+
+[[bin]]
+
+name = "pattern_matching"
