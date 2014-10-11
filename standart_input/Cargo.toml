@@ -1,0 +1,9 @@
+[package]
+
+name = "standart_input"
+version = "0.0.1"
+authors = [ "Vitaly <vt4a2h@gmail.com>" ]
+
+[[bin]]
+
+name = "standart_input"
