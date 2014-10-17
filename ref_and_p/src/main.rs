@@ -11,6 +11,14 @@ fn main() {
 
     assert_eq!(5i, *y); // dereference
     assert_eq!(6, add_one(&5));
+
+    let e = box 5i; // heap allocated, will be destroy, after go on scope
+
+    let mut f = box 6i;
+    {
+    	let x = &mut f;
+    	*x = *f + 5;
+    } // x go out of scope. OK
 }
 
 fn add_one(x: &int) -> int { *x + 1 }
