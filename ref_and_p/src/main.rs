@@ -1,3 +1,5 @@
+use std::rc::Rc;
+
 fn main() {
     let x = 5i;
     let y = &x; // reference to x, immutable by default
@@ -17,8 +19,14 @@ fn main() {
     let mut f = box 6i;
     {
     	let x = &mut f;
-    	*x = *f + 5;
+    	// *x = *f + 5;
     } // x go out of scope. OK
+
+    // RC -- reference counted (faster that Arc)
+    // Arc -- atomiaclly reference counted
+    let r = Rc::new(5i);
+
+    let r_c = r.clone();
 }
 
 fn add_one(x: &int) -> int { *x + 1 }
