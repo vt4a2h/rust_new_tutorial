@@ -1,3 +1,8 @@
+enum OptionalInt {
+	Value(int),
+	Missing,
+}
+
 fn main() {
 	let x = 5i;
 
@@ -14,6 +19,31 @@ fn main() {
 		Less    => println!("less"),
 		Greater => println!("greator"),
 		Equal   => println!("equal"),
+	}
+
+	let a = 1i;
+	match a {
+		1 | 2 => println!("one or two"),
+		_     => println!("anything"),
+	}
+
+	let b = 4i;
+	match b {
+		1 ... 5 => println!("int ramge [1..5]"),
+		_       => println!("anything"),
+	}
+
+	let c = 1i;
+	match c {
+		c @ 1 ... 5 => println!("got {}", c), // bind value
+		_           => println!("anything"),
+	}
+
+	let d = Value(6i);
+	match d {
+		Value(x) if x > 5 => println!("biggre than five."),
+		Value(..)         => println!("got an int"), // ignore value
+		Missing           => println!("No such luck."),
 	}
 }
 
