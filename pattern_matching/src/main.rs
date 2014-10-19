@@ -45,6 +45,20 @@ fn main() {
 		Value(..)         => println!("got an int"), // ignore value
 		Missing           => println!("No such luck."),
 	}
+
+	// can use &x or ref x in matching (ref x => ...)
+	// with mut too (ref mut x =>)
+
+	let origin = Point { x: 0i, y: 0i };
+	match origin {
+		Point { x: x, y: y } => println!("({},{})", x, y),
+		// Point { x: x, .. } => println!("( x is {})", x),
+	}
+}
+
+struct Point {
+	x: int,
+	y: int,
 }
 
 fn cmp(a: int, b: int) -> Ordering {
