@@ -6,4 +6,8 @@ fn main() {
     // lambda
     let printer = || { println!("x is {}", x); }; // x borrowed now
     printer();
+
+    let y = 4i;
+    let p = proc() { x * x }; // can be called once
+    println!("{}", p());
 }
