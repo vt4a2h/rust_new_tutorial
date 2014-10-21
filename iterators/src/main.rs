@@ -14,4 +14,11 @@ fn main() {
     for num in nums.iter() {
     	println!("{}", *num);
     }
+
+    // consumers
+    let greatter_than_forty_two = range(0i, 100i).find(|x| *x >= 42);
+    match greatter_than_forty_two {
+    	Some(_) => println!("We got some numbers!"),
+    	None    => println!("No numbers found :("),
+    }
 }
