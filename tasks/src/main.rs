@@ -1,3 +1,7 @@
+use std::sync::Future;
+use std::task;
+use std::rand;
+
 fn main() {
 
 	// simple task
@@ -29,4 +33,20 @@ fn main() {
 	println!("{}", message);
 
 	tx2.send("Goodbye from main!".to_string());
+
+	// futures
+	// must be mutable
+	let mut delayed_value = Future::spawn(proc() {
+		12345i // example
+	});
+	println!("value = {}", delayed_value.get())
+
+	// handle fails
+	let result = task::try(proc() {
+		if rand::random() {
+			println!("OK!");
+		} else {
+			fail!("ooops!");
+		}
+	});
 }
